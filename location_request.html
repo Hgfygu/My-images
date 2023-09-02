@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Location Request</title>
+</head>
+<body>
+    <h1>Would you like to share your location?</h1>
+    <button onclick="getLocation()">Yes</button>
+
+    <script>
+        function getLocation() {
+            if ("geolocation" in navigator) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    // Send the location data to your server here
+                    alert(`Your location: ${position.coords.latitude}, ${position.coords.longitude}`);
+                }, function(error) {
+                    alert("Error getting location: " + error.message);
+                });
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+    </script>
+</body>
+</html>
